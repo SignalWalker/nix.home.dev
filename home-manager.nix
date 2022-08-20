@@ -6,23 +6,20 @@
 }:
 with builtins; let
   std = pkgs.lib;
-  cfg = config.dev;
+  cfg = config.signal.dev;
 in {
-  options.dev = with lib; {
-    enable = mkEnableOption "development environment configuration";
+  options.signal.dev = with lib; {
   };
-  imports = [
-    ./src/cache.nix
-    ./src/direnv.nix
-    ./src/git.nix
-    ./src/lang.nix
-    ./src/linker.nix
-    ./src/neovim.nix
-  ];
-  config = lib.mkIf cfg.enable {
+  imports = lib.signal.fs.listFiles ./src;
+  config = {
     home.packages = with pkgs; [
       # debug
       strace
     ];
+    manual = {
+      html.enable = true;
+      manpages.enable = true;
+      json.enable = true;
+    };
   };
 }
