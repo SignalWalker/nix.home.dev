@@ -63,11 +63,11 @@
       hlib = homelib.lib;
       nixpkgsFor = hlib.genNixpkgsFor {
         inherit nixpkgs;
-        overlays = system: (inputs.homebase.lib.selectOverlays [ "default" system ]) ++ (self.lib.selectOverlays [ "default" system "rust" ]);
+        overlays = system: (inputs.homebase.lib.selectOverlays ["default" system]) ++ (self.lib.selectOverlays ["default" system "rust"]);
       };
     in {
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
-      lib.overlays = hlib.aggregateOverlays (attrValues (removeAttrs inputs [ "nixpkgs" "direnv" ]));
+      lib.overlays = hlib.aggregateOverlays (attrValues (removeAttrs inputs ["nixpkgs" "direnv"]));
       lib.selectOverlays = hlib.selectOverlays' self;
       homeManagerModules.default = {lib, ...}: {
         options.signal.dev.flakeInputs = with lib;
