@@ -6,10 +6,16 @@
       url = github:kamadorueda/alejandra;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    homelib = {
+      url = github:signalwalker/nix.home.lib;
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.alejandra.follows = "alejandra";
+    };
     homebase = {
       url = github:signalwalker/nix.home.base;
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.alejandra.follows = "alejandra";
+      inputs.homelib.follows = "homelib";
     };
     # meta
     direnv = {
@@ -52,15 +58,17 @@
     ...
   }:
     with builtins; let
-      homelib = inputs.homebase.inputs.homelib;
+      homelib = inputs.homelib;
       std = nixpkgs.lib;
       hlib = homelib.lib;
       nixpkgsFor = hlib.genNixpkgsFor {
         inherit nixpkgs;
-        overlays = [ inputs.mozilla.overlays.rust ] ++ (hlib.collectInputOverlays (attrValues (removeAttrs inputs [ "self" "direnv" "mozilla" ])));
+        overlays = system: (inputs.homebase.lib.selectOverlays [ "default" system ]) ++ (self.lib.selectOverlays [ "default" system "rust" ]);
       };
     in {
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
+      lib.overlays = hlib.aggregateOverlays (attrValues (removeAttrs inputs [ "nixpkgs" "direnv" ]));
+      lib.selectOverlays = hlib.selectOverlays' self;
       homeManagerModules.default = {lib, ...}: {
         options.signal.dev.flakeInputs = with lib;
           mkOption {
