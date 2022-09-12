@@ -72,7 +72,7 @@
         }) // {
           mozilla = {
             input = inputs.mozilla;
-            overlays = [ "rust" ];
+            outputs.overlays = [ "rust" ];
           };
         };
         outputs = dependencies: {
