@@ -66,9 +66,14 @@
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
       signalModules.default = {
         name = "home.dev.default";
-        dependencies = hlib.signal.dependency.default.fromInputs {
+        dependencies = (hlib.signal.dependency.default.fromInputs {
           inherit inputs;
           filter = ["homelib"];
+        }) // {
+          mozilla = {
+            input = inputs.mozilla;
+            overlays = [ "rust" ];
+          };
         };
         outputs = dependencies: {
           homeManagerModules.default = {lib, ...}: {
