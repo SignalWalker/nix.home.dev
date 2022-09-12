@@ -10,7 +10,7 @@ with builtins; let
 in {
   options.signal.dev = with lib; {
   };
-  imports = lib.signal.fs.listFiles ./src;
+  imports = lib.signal.fs.path.listFilePaths ./src;
   config = {
     home.packages = with pkgs; [
       # debug

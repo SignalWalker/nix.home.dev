@@ -61,36 +61,26 @@
       homelib = inputs.homelib;
       std = nixpkgs.lib;
       hlib = homelib.lib;
-      nixpkgsFor = hlib.genNixpkgsFor {
-        inherit nixpkgs;
-        overlays = system: (inputs.homebase.lib.selectOverlays ["default" system]) ++ (self.lib.selectOverlays ["default" system "rust"]);
-      };
+      home = hlib.home;
     in {
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
-      lib.overlays = hlib.aggregateOverlays (attrValues (removeAttrs inputs ["nixpkgs" "direnv"]));
-      lib.selectOverlays = hlib.selectOverlays' self;
-      homeManagerModules.default = {lib, ...}: {
-        options.signal.dev.flakeInputs = with lib;
-          mkOption {
-            type = types.attrsOf types.anything;
-            default = inputs;
+      signalModules.default = {
+        name = "home.dev.default";
+        dependencies = hlib.signal.dependency.default.fromInputs {
+          inherit inputs;
+          filter = ["homelib"];
+        };
+        outputs = dependencies: {
+          homeManagerModules.default = {lib, ...}: {
+            imports = [
+              ./home-manager.nix
+            ];
+            config = {};
           };
-        imports =
-          [
-            ./home-manager.nix
-          ]
-          ++ (hlib.collectInputModules (attrValues (removeAttrs inputs ["self" "direnv"])));
-        config = {};
+        };
       };
-      homeConfigurations =
-        mapAttrs (system: pkgs: {
-          default = hlib.genHomeConfiguration {
-            inherit pkgs;
-            modules = [self.homeManagerModules.default];
-          };
-        })
-        nixpkgsFor;
-      packages = hlib.genHomeActivationPackages self.homeConfigurations;
-      apps = hlib.genHomeActivationApps self.homeConfigurations;
+      homeConfigurations = home.genConfigurations self;
+      packages = home.genActivationPackages self.homeConfigurations;
+      apps = home.genActivationApps self.homeConfigurations;
     };
 }
