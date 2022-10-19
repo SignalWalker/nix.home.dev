@@ -31,11 +31,11 @@
       url = github:neovim/neovim?dir=contrib;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvimpager = {
-      url = github:lucc/nvimpager;
-      inputs.neovim.follows = "neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nvimpager = {
+    #   url = github:lucc/nvimpager;
+    #   inputs.neovim.follows = "neovim";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # nix
     statix = {
       # url = git+https://git.peppe.rs/languages/statix;
