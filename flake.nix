@@ -28,8 +28,13 @@
     };
     # editor
     neovim = {
-      url = github:neovim/neovim?dir=contrib;
+      url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim-ash = {
+      url = "github:signalwalker/cfg.neovim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.neovim.follows = "neovim";
     };
     helix = {
       url = "github:helix-editor/helix";
@@ -48,7 +53,6 @@
     # rust
     mozilla = {
       url = github:mozilla/nixpkgs-mozilla;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = inputs @ {
