@@ -27,7 +27,7 @@
         "fenix": "fenix_2",
         "flakeCompat": "flakeCompat_2",
         "nixpkgs": [
-          "neovim-ash",
+          "ashvim",
           "nixpkgs"
         ]
       },
@@ -42,6 +42,30 @@
       "original": {
         "owner": "kamadorueda",
         "repo": "alejandra",
+        "type": "github"
+      }
+    },
+    "ashvim": {
+      "inputs": {
+        "alejandra": "alejandra_2",
+        "neovim": [
+          "neovim"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1671806578,
+        "narHash": "sha256-VKj9l5TF3ItCwJLfL/CjMCE0rrY4kMw1D0PAZtBVrWY=",
+        "owner": "signalwalker",
+        "repo": "cfg.neovim",
+        "rev": "f6234b866fa69887ae6b09eebc49a53f2699fe02",
+        "type": "github"
+      },
+      "original": {
+        "owner": "signalwalker",
+        "repo": "cfg.neovim",
         "type": "github"
       }
     },
@@ -183,7 +207,7 @@
     "fenix_2": {
       "inputs": {
         "nixpkgs": [
-          "neovim-ash",
+          "ashvim",
           "alejandra",
           "nixpkgs"
         ],
@@ -544,30 +568,6 @@
         "type": "github"
       }
     },
-    "neovim-ash": {
-      "inputs": {
-        "alejandra": "alejandra_2",
-        "neovim": [
-          "neovim"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1670859113,
-        "narHash": "sha256-wag1OoAis2HpHZ45uQJ2P7NUP0b/rHa4nT9mkbtp7YM=",
-        "owner": "signalwalker",
-        "repo": "cfg.neovim",
-        "rev": "581ce38127899f06d810bcce0af64d5b2221afbf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "signalwalker",
-        "repo": "cfg.neovim",
-        "type": "github"
-      }
-    },
     "nix-direnv": {
       "inputs": {
         "flake-utils": "flake-utils_3",
@@ -648,13 +648,13 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
+        "ashvim": "ashvim",
         "direnv": "direnv",
         "helix": "helix",
         "homebase": "homebase",
         "homelib": "homelib",
         "mozilla": "mozilla",
         "neovim": "neovim",
-        "neovim-ash": "neovim-ash",
         "nix-direnv": "nix-direnv",
         "nixpkgs": "nixpkgs",
         "rnix-lsp": "rnix-lsp",
