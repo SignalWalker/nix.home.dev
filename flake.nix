@@ -31,7 +31,7 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-ash = {
+    ashvim = {
       url = "github:signalwalker/cfg.neovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.neovim.follows = "neovim";
