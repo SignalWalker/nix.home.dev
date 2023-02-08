@@ -17,6 +17,10 @@
       inputs.alejandra.follows = "alejandra";
       inputs.homelib.follows = "homelib";
     };
+    crane = {
+      url = github:ipetkov/crane;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # meta
     direnv = {
       url = github:direnv/direnv;
@@ -58,6 +62,11 @@
     mozilla = {
       url = github:mozilla/nixpkgs-mozilla;
     };
+    # git
+    onefetch = {
+      url = github:o2sh/onefetch;
+      flake = false;
+    };
   };
   outputs = inputs @ {
     self,
@@ -86,7 +95,10 @@
             imports = [
               ./home-manager.nix
             ];
-            config = {};
+            config = {
+              signal.dev.inputs = dependencies;
+              signal.dev.git.onefetch.src = dependencies.onefetch;
+            };
           };
         };
       };
