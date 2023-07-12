@@ -19,6 +19,7 @@ in {
       # debug
       strace
     ];
+    # TODO :: why are these disabled
     manual = {
       html.enable = false;
       manpages.enable = false;
