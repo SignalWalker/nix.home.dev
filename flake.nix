@@ -6,17 +6,6 @@
       url = github:kamadorueda/alejandra;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    homelib = {
-      url = github:signalwalker/nix.home.lib;
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.alejandra.follows = "alejandra";
-    };
-    homebase = {
-      url = github:signalwalker/nix.home.base;
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.alejandra.follows = "alejandra";
-      inputs.homelib.follows = "homelib";
-    };
     crane = {
       url = github:ipetkov/crane;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,39 +63,19 @@
     ...
   }:
     with builtins; let
-      homelib = inputs.homelib;
       std = nixpkgs.lib;
-      hlib = homelib.lib;
-      home = hlib.home;
-      signal = hlib.signal;
     in {
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
-      signalModules.default = {
-        name = "home.dev.default";
-        dependencies = signal.flake.set.toDependencies {
-          flakes = inputs;
-          filter = [];
-          outputs = {
-            mozilla.overlays = ["rust"];
-          };
-        };
-        outputs = dependencies: {
-          homeManagerModules = {lib, ...}: {
-            imports = [
-              ./home-manager.nix
-            ];
-            config = {
-              signal.dev.inputs = dependencies;
-              signal.dev.git.onefetch.src = dependencies.onefetch;
-            };
-          };
+      homeManagerModules.default = {lib, ...}: {
+        imports = [
+          inputs.ashvim.homeManagerModules.default
+          inputs.ashmacs.homeManagerModules.default
+          ./home-manager.nix
+        ];
+        config = {
+          signal.dev.inputs = inputs;
+          signal.dev.git.onefetch.src = inputs.onefetch;
         };
       };
-      homeConfigurations = home.configuration.fromFlake {
-        flake = self;
-        flakeName = "home.dev";
-      };
-      packages = home.package.fromHomeConfigurations self.homeConfigurations;
-      apps = home.app.fromHomeConfigurations self.homeConfigurations;
     };
 }
