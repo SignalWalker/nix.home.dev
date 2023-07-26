@@ -1,22 +1,22 @@
 {
   description = "Home manager configuration - development environment";
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixpkgs-unstable;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     alejandra = {
-      url = github:kamadorueda/alejandra;
+      url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     crane = {
-      url = github:ipetkov/crane;
+      url = "github:ipetkov/crane";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # meta
     direnv = {
-      url = github:direnv/direnv;
+      url = "github:direnv/direnv";
       flake = false;
     };
     nix-direnv = {
-      url = github:nix-community/nix-direnv;
+      url = "github:nix-community/nix-direnv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # editor
@@ -39,21 +39,21 @@
     };
     # nix
     statix = {
-      # url = git+https://git.peppe.rs/languages/statix;
-      url = github:nerdypepper/statix;
+      # url = "git+https://git.peppe.rs/languages/statix";
+      url = "github:nerdypepper/statix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rnix-lsp = {
-      url = github:nix-community/rnix-lsp;
+      url = "github:nix-community/rnix-lsp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # rust
     mozilla = {
-      url = github:mozilla/nixpkgs-mozilla;
+      url = "github:mozilla/nixpkgs-mozilla";
     };
     # git
     onefetch = {
-      url = github:o2sh/onefetch;
+      url = "github:o2sh/onefetch";
       flake = false;
     };
   };
