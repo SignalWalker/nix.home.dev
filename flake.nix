@@ -27,7 +27,7 @@
     ashvim = {
       url = "github:signalwalker/cfg.neovim";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.neovim.follows = "neovim";
+      # inputs.neovim.follows = "neovim";
     };
     ashmacs = {
       url = "github:signalwalker/cfg.emacs";
@@ -43,10 +43,10 @@
       url = "github:nerdypepper/statix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rnix-lsp = {
-      url = "github:nix-community/rnix-lsp";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # rnix-lsp = {
+    #   url = "github:nix-community/rnix-lsp";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # rust
     mozilla = {
       url = "github:mozilla/nixpkgs-mozilla";
