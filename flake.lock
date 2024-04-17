@@ -97,11 +97,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713359915,
-        "narHash": "sha256-/EkyD2dA5febABBuK5vceGpAO/KOrSWcx1MTKyMJeaA=",
+        "lastModified": 1713361820,
+        "narHash": "sha256-zhQKZ8F9yldmCUPhhHsThMbs+z1hinG+kFsO6nN1h3o=",
         "owner": "signalwalker",
         "repo": "cfg.neovim",
-        "rev": "fd3359b989c8ace2db92f58fb0c387f5d7ad0c05",
+        "rev": "16bd8a83ff7e09b3b8598173b3c41a44928fb07a",
         "type": "github"
       },
       "original": {
