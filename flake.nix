@@ -20,14 +20,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # editor
-    neovim = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ashvim = {
       url = "github:signalwalker/cfg.neovim";
       inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.neovim.follows = "neovim";
     };
     ashmacs = {
       url = "github:signalwalker/cfg.emacs";
