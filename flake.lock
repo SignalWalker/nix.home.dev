@@ -606,11 +606,11 @@
     "onefetch": {
       "flake": false,
       "locked": {
-        "lastModified": 1730760056,
-        "narHash": "sha256-4fyHjNekzyYnhTVj3kGJ/hoCpoIIgmfvEIDBryTDpXc=",
+        "lastModified": 1731161376,
+        "narHash": "sha256-ihJ7a46S5szzpvYSTsb1lOVfDJhgtZaNC0smyovqMZk=",
         "owner": "o2sh",
         "repo": "onefetch",
-        "rev": "ec0bcbdfb91a4c03269176d6c13059e7f2038c0a",
+        "rev": "67189bfe91bba3b0259bca6463e600d99c2839b6",
         "type": "github"
       },
       "original": {
