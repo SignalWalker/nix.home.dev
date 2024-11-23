@@ -144,11 +144,11 @@
     "direnv": {
       "flake": false,
       "locked": {
-        "lastModified": 1730101727,
-        "narHash": "sha256-gu/56EVju37hF1kQxrLKZZW+39++aSWnjtfOaOpPbv0=",
+        "lastModified": 1732135124,
+        "narHash": "sha256-CAK0hjj02v4SPeFix/rKk9lsybjshJ0CZINSawRHbyk=",
         "owner": "direnv",
         "repo": "direnv",
-        "rev": "aa761e3944cf47751596b2082f2a3c9d33c5aeba",
+        "rev": "9c53eaeab6bff27123d51b81f4831d9f454d548b",
         "type": "github"
       },
       "original": {
@@ -472,11 +472,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1731479417,
-        "narHash": "sha256-NZ+Jc9XecxUIC6RBE5TdDo8hKzI704fMBKTz6lEH32w=",
+        "lastModified": 1732284611,
+        "narHash": "sha256-SH7WRJnFSXDJ6f9UzMUdaa6cS5Fc2kACSW8wB9BA8WU=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "6cca98264fe308bd6a4f7f85be2d821b58f60b4a",
+        "rev": "cbbeca6c5227e65bebdbe9abbadbd2202ffc1005",
         "type": "github"
       },
       "original": {
