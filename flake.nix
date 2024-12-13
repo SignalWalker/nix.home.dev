@@ -60,7 +60,11 @@
       std = nixpkgs.lib;
     in {
       formatter = std.mapAttrs (system: pkgs: pkgs.default) inputs.alejandra.packages;
-      homeManagerModules.default = {lib, ...}: {
+      homeManagerModules.default = {
+        lib,
+        pkgs,
+        ...
+      }: {
         imports = [
           inputs.ashvim.homeManagerModules.default
           inputs.ashmacs.homeManagerModules.default
@@ -69,6 +73,8 @@
         config = {
           signal.dev.inputs = inputs;
           signal.dev.git.onefetch.src = inputs.onefetch;
+
+          programs.direnv.nix-direnv.package = inputs.nix-direnv.packages.${pkgs.system}.nix-direnv;
         };
       };
     };
