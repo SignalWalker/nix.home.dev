@@ -89,11 +89,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1733688869,
-        "narHash": "sha256-KrhxxFj1CjESDrL5+u/zsVH0K+Ik9tvoac/oFPoxSB8=",
+        "lastModified": 1734324364,
+        "narHash": "sha256-omYTR59TdH0AumP1cfh49fBnWZ52HjfdNfaLzCMZBx0=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "604637106e420ad99907cae401e13ab6b452e7d9",
+        "rev": "60d7623f1320470bf2fdb92fd2dca1e9a27b98ce",
         "type": "github"
       },
       "original": {
@@ -120,11 +120,11 @@
     "direnv": {
       "flake": false,
       "locked": {
-        "lastModified": 1732135124,
-        "narHash": "sha256-CAK0hjj02v4SPeFix/rKk9lsybjshJ0CZINSawRHbyk=",
+        "lastModified": 1734334535,
+        "narHash": "sha256-3jZ/vCJXO6KCEXnQ5G8ffP0u8fhowvnNngcQPsbBeuI=",
         "owner": "direnv",
         "repo": "direnv",
-        "rev": "9c53eaeab6bff27123d51b81f4831d9f454d548b",
+        "rev": "564c77d4c5ecf4b6e9b63c4c438d4c2e27018f73",
         "type": "github"
       },
       "original": {
@@ -409,11 +409,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1734120292,
-        "narHash": "sha256-L6f2Biwy5To1Nv6K+aw+zZo+UKPAFEGLzRy9n4BrdZQ=",
+        "lastModified": 1734364874,
+        "narHash": "sha256-KfIjyrDcWWmCrS+XKw4ZeUnCjKLYZ1cZZ2F1NvG6m5Y=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "e14c346ee74a44051b2c07c2255a6ab80142dbe7",
+        "rev": "99fdbce566434a8fc823a28a8c1cccbb743a5ade",
         "type": "github"
       },
       "original": {
